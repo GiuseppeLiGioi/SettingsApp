@@ -31,6 +31,4 @@ const styles = StyleSheet.create({
   containerCard: {
     marginTop: 20,
   },
-  containerSwitch: {},
-  label: {},
 });
