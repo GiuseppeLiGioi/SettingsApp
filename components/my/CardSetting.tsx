@@ -5,8 +5,9 @@ import Settings from "@/assets/icons/settingsTsx/Settings";
 
 import Document from "@/assets/icons/settingsTsx/Document";
 import HelpIcon from "@/assets/icons/settingsTsx/HelpIcon";
+import InviteFriend from "@/assets/icons/settingsTsx/InviteFriend";
 import VitaiLogo from "@/assets/icons/settingsTsx/VitaiLogo";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import SingleRowCard from "./SingleRowCard";
 export default function CardSetting() {
   const rows = [
@@ -54,6 +55,18 @@ export default function CardSetting() {
             switchProp={r.switchProp}
           />
         ))}
+        <View style={styles.bottomContainer}>
+          <View style={styles.inviteIconBox}>{InviteFriend({})}</View>
+
+          <View style={styles.rightBottomContainer}>
+            <Text style={styles.textBottom}>
+              Invite friend to give a friend $15 of and get $10 credit for you!
+            </Text>
+            <Pressable style={styles.btnWrapper}>
+              <Text style={styles.textBottomButton}>Invite Now!</Text>
+            </Pressable>
+          </View>
+        </View>
       </View>
     </ScrollView>
   );
@@ -65,5 +78,46 @@ const styles = StyleSheet.create({
     width: "90%",
     alignSelf: "center",
     maxWidth: 900,
+  },
+  bottomContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 12,
+    gap: 10,
+    backgroundColor: "#FFFFFF",
+  },
+  rightBottomContainer: {
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flex: 1,
+    marginLeft: 10,
+    gap: 8,
+  },
+  textBottom: {
+    color: "#1E1F20",
+    fontSize: 13,
+    lineHeight: 22,
+    fontWeight: 400,
+  },
+  inviteIconBox: {
+    width: 78,
+    height: 78,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  btnWrapper: {
+    justifyContent: "center",
+    backgroundColor: "#00A7A5",
+    width: 90,
+    height: 30,
+    borderRadius: 4,
+  },
+  textBottomButton: {
+    textAlign: "center",
+    color: "white",
+    fontWeight: 400,
+    fontSize: 12,
+    lineHeight: 14,
   },
 });
