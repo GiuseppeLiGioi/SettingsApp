@@ -15,6 +15,8 @@ import {
   View,
   useWindowDimensions,
 } from "react-native";
+import { useLoadFonts } from "../../hooks/settingsHooks/useLoadFonts";
+
 import SingleRowCard from "./SingleRowCard";
 export default function CardSetting() {
   const { width } = useWindowDimensions();
@@ -41,6 +43,10 @@ export default function CardSetting() {
       switchProp: false,
     },
   ];
+
+  const fontsLoaded = useLoadFonts();
+
+  if (!fontsLoaded) return null;
 
   return (
     <ScrollView>
@@ -128,6 +134,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 22,
     fontWeight: 400,
+    fontFamily: "Roboto-Regular",
   },
   inviteIconBox: {
     width: 78,
@@ -148,5 +155,6 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     fontSize: 12,
     lineHeight: 14,
+    fontFamily: "Roboto-Regular",
   },
 });

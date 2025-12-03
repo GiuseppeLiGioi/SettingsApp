@@ -1,7 +1,7 @@
 import Row from "@/assets/icons/settingsTsx/Row";
-
 import { ReactNode, useState } from "react";
 import { Pressable, StyleSheet, Switch, Text, View } from "react-native";
+import { useLoadFonts } from "../../hooks/settingsHooks/useLoadFonts";
 type SingleRowCardProps = {
   svg: ReactNode;
   name: string;
@@ -14,6 +14,10 @@ export default function SingleRowCard({
   switchProp,
 }: SingleRowCardProps) {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  const fontsLoaded = useLoadFonts();
+
+  if (!fontsLoaded) return null;
   return (
     <View style={styles.containerSingleRow}>
       <View style={styles.leftColumn}>
@@ -26,7 +30,7 @@ export default function SingleRowCard({
         </View>
       ) : (
         <Pressable onPress={() => console.log("ciao")}>
-          <Text>{Row({})}</Text>
+          <Row />
         </Pressable>
       )}
     </View>
@@ -61,6 +65,7 @@ const styles = StyleSheet.create({
   name: {
     textAlign: "center",
     fontSize: 16,
+    fontFamily: "Roboto-Regular",
     alignSelf: "center",
   },
 });

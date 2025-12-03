@@ -1,6 +1,7 @@
 import ProfileIcon from "@/assets/icons/settingsTsx/ProfileIcon";
 import editProfile from "@/assets/icons/settingsTsx/editProfile";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useLoadFonts } from "../../hooks/settingsHooks/useLoadFonts";
 
 type StickyHeaderProps = {
   name: string;
@@ -12,6 +13,9 @@ export default function StickyHeader({
   email,
   modeAccount,
 }: StickyHeaderProps) {
+  const fontsLoaded = useLoadFonts();
+
+  if (!fontsLoaded) return null;
   return (
     <View style={styles.containerHeader}>
       <View style={styles.leftColumn}>
@@ -53,17 +57,20 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     fontSize: 13,
     lineHeight: 25,
+    fontFamily: "Roboto-Regular",
   },
   textName: {
     color: "#1E1F20",
     fontWeight: 400,
     fontSize: 15,
     lineHeight: 20,
+    fontFamily: "Roboto-Regular",
   },
   textEmail: {
     color: "#1E1F20",
     fontWeight: 400,
     fontSize: 13,
     lineHeight: 20,
+    fontFamily: "Roboto-Regular",
   },
 });
