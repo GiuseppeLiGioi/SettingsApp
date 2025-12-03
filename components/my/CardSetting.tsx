@@ -2,7 +2,7 @@ import Files from "@/assets/icons/settingsTsx/Files";
 import Mode from "@/assets/icons/settingsTsx/Mode";
 import Payment from "@/assets/icons/settingsTsx/Payment";
 import Settings from "@/assets/icons/settingsTsx/Settings";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import SingleRowCard from "./SingleRowCard";
 export default function CardSetting() {
   const rows = [
@@ -12,23 +12,39 @@ export default function CardSetting() {
     { svg: Mode, name: "Dark Mode", marginLeft: 10, switchProp: true },
   ];
 
+  const rows2 = [];
+
   return (
-    <View style={styles.containerCard}>
-      {rows.map((r, index) => (
-        <SingleRowCard
-          key={index}
-          svg={r.svg({})}
-          name={r.name}
-          marginLeft={r.marginLeft}
-          switchProp={r.switchProp}
-        />
-      ))}
-    </View>
+    <ScrollView>
+      <View style={styles.containerCard}>
+        {rows.map((r, index) => (
+          <SingleRowCard
+            key={index}
+            svg={r.svg({})}
+            name={r.name}
+            marginLeft={r.marginLeft}
+            switchProp={r.switchProp}
+          />
+        ))}
+      </View>
+
+      <View style={styles.containerCard}>
+        {rows.map((r, index) => (
+          <SingleRowCard
+            key={index}
+            svg={r.svg({})}
+            name={r.name}
+            marginLeft={r.marginLeft}
+            switchProp={r.switchProp}
+          />
+        ))}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   containerCard: {
-    marginTop: 20,
+    margin: 20,
   },
 });

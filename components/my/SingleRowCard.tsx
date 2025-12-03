@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "red",
     gap: 10,
-    width: "90%",
+    width: "100%",
     alignSelf: "center",
   },
   leftColumn: {
