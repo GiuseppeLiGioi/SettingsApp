@@ -37,11 +37,12 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: "center",
     backgroundColor: "white",
-    borderWidth: 2,
-    borderColor: "red",
     gap: 10,
     width: "100%",
     alignSelf: "center",
+
+    borderBottomWidth: 1,
+    borderBottomColor: "#FAFAFA",
   },
   leftColumn: {
     flexDirection: "row",
