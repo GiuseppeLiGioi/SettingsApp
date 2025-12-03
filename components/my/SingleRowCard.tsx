@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 15,
     alignItems: "flex-start",
-    marginLeft: 10,
   },
   iconBox: {
     width: 36,
