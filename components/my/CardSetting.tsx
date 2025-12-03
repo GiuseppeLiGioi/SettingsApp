@@ -8,19 +8,17 @@ import HelpIcon from "@/assets/icons/settingsTsx/HelpIcon";
 import InviteFriend from "@/assets/icons/settingsTsx/InviteFriend";
 import VitaiLogo from "@/assets/icons/settingsTsx/VitaiLogo";
 import {
+  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
   View,
-  useWindowDimensions,
 } from "react-native";
 import { useLoadFonts } from "../../hooks/settingsHooks/useLoadFonts";
 
 import SingleRowCard from "./SingleRowCard";
 export default function CardSetting() {
-  const { width } = useWindowDimensions();
-  const isWeb = width > 768;
   const rows = [
     { svg: Files, name: "Files", switchProp: false },
     { svg: Payment, name: "Payment method", switchProp: false },
@@ -76,7 +74,7 @@ export default function CardSetting() {
           <View
             style={[
               styles.rightBottomContainer,
-              isWeb && styles.rightBottomContainerWeb,
+              Platform.OS === "web" && styles.rightBottomContainerWeb,
             ]}
           >
             <Text style={styles.textBottom}>
