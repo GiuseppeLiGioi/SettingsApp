@@ -1,6 +1,6 @@
 import ProfileIcon from "@/assets/icons/settingsTsx/ProfileIcon";
 import editProfile from "@/assets/icons/settingsTsx/editProfile";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type StickyHeaderProps = {
   name: string;
@@ -24,20 +24,18 @@ export default function StickyHeader({
         </View>
       </View>
 
-      {editProfile({})}
+      <Pressable onPress={() => console.log("ciao")}>
+        <Text>{editProfile({})}</Text>
+      </Pressable>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   containerHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
     backgroundColor: "white",
-    borderWidth: 2,
-    borderColor: "red",
-    gap: 10,
     width: "90%",
     alignSelf: "center",
   },

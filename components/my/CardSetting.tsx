@@ -7,9 +7,18 @@ import Document from "@/assets/icons/settingsTsx/Document";
 import HelpIcon from "@/assets/icons/settingsTsx/HelpIcon";
 import InviteFriend from "@/assets/icons/settingsTsx/InviteFriend";
 import VitaiLogo from "@/assets/icons/settingsTsx/VitaiLogo";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from "react-native";
 import SingleRowCard from "./SingleRowCard";
 export default function CardSetting() {
+  const { width } = useWindowDimensions();
+  const isWeb = width > 768;
   const rows = [
     { svg: Files, name: "Files", switchProp: false },
     { svg: Payment, name: "Payment method", switchProp: false },
@@ -58,11 +67,19 @@ export default function CardSetting() {
         <View style={styles.bottomContainer}>
           <View style={styles.inviteIconBox}>{InviteFriend({})}</View>
 
-          <View style={styles.rightBottomContainer}>
+          <View
+            style={[
+              styles.rightBottomContainer,
+              isWeb && styles.rightBottomContainerWeb,
+            ]}
+          >
             <Text style={styles.textBottom}>
               Invite friend to give a friend $15 of and get $10 credit for you!
             </Text>
-            <Pressable style={styles.btnWrapper}>
+            <Pressable
+              style={styles.btnWrapper}
+              onPress={() => console.log("Ciao")}
+            >
               <Text style={styles.textBottomButton}>Invite Now!</Text>
             </Pressable>
           </View>
@@ -77,15 +94,15 @@ const styles = StyleSheet.create({
     margin: 20,
     width: "90%",
     alignSelf: "center",
-    maxWidth: 900,
   },
   bottomContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     padding: 12,
-    gap: 10,
+    gap: 6,
     backgroundColor: "#FFFFFF",
+    width: "100%",
   },
   rightBottomContainer: {
     justifyContent: "flex-start",
@@ -93,6 +110,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     gap: 8,
+  },
+  rightBottomContainerWeb: {
+    alignItems: "flex-end",
+    marginRight: 12,
   },
   textBottom: {
     color: "#1E1F20",

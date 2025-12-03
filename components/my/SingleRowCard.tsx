@@ -1,6 +1,7 @@
 import Row from "@/assets/icons/settingsTsx/Row";
+
 import { ReactNode, useState } from "react";
-import { StyleSheet, Switch, Text, View } from "react-native";
+import { Pressable, StyleSheet, Switch, Text, View } from "react-native";
 type SingleRowCardProps = {
   svg: ReactNode;
   name: string;
@@ -24,7 +25,9 @@ export default function SingleRowCard({
           <Switch value={isDarkMode} onValueChange={setIsDarkMode} />
         </View>
       ) : (
-        <Row />
+        <Pressable onPress={() => console.log("ciao")}>
+          <Text>{Row({})}</Text>
+        </Pressable>
       )}
     </View>
   );
