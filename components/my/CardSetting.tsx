@@ -91,7 +91,7 @@ export default function CardSetting() {
 
 const styles = StyleSheet.create({
   containerCard: {
-    margin: 20,
+    marginTop: 40,
     width: "90%",
     alignSelf: "center",
     backgroundColor: "white",
