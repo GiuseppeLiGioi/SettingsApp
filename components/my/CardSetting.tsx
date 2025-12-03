@@ -10,24 +10,24 @@ import { ScrollView, StyleSheet, View } from "react-native";
 import SingleRowCard from "./SingleRowCard";
 export default function CardSetting() {
   const rows = [
-    { svg: Files, name: "Files", marginLeft: 10, switchProp: false },
-    { svg: Payment, name: "Payment method", marginLeft: 0, switchProp: false },
-    { svg: Settings, name: "Settings", marginLeft: 10, switchProp: false },
-    { svg: Mode, name: "Dark Mode", marginLeft: 10, switchProp: true },
+    { svg: Files, name: "Files", switchProp: false },
+    { svg: Payment, name: "Payment method", switchProp: false },
+    { svg: Settings, name: "Settings", switchProp: false },
+    { svg: Mode, name: "Dark Mode", switchProp: true },
   ];
 
   const rows2 = [
-    { svg: VitaiLogo, name: "About Aivi", marginLeft: 0, switchProp: false },
+    { svg: VitaiLogo, name: "About Aivi", switchProp: false },
     {
       svg: HelpIcon,
       name: "Help & Support",
-      marginLeft: 10,
+
       switchProp: false,
     },
     {
       svg: Document,
       name: "Privacy and Policy",
-      marginLeft: 10,
+
       switchProp: false,
     },
   ];
@@ -40,7 +40,6 @@ export default function CardSetting() {
             key={index}
             svg={r.svg({})}
             name={r.name}
-            marginLeft={r.marginLeft}
             switchProp={r.switchProp}
           />
         ))}
@@ -52,7 +51,6 @@ export default function CardSetting() {
             key={index}
             svg={r.svg({})}
             name={r.name}
-            marginLeft={r.marginLeft}
             switchProp={r.switchProp}
           />
         ))}

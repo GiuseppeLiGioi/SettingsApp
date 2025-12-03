@@ -4,21 +4,19 @@ import { StyleSheet, Switch, Text, View } from "react-native";
 type SingleRowCardProps = {
   svg: ReactNode;
   name: string;
-  marginLeft?: number;
   switchProp?: boolean;
 };
 
 export default function SingleRowCard({
   svg,
   name,
-  marginLeft,
   switchProp,
 }: SingleRowCardProps) {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   return (
     <View style={styles.containerSingleRow}>
-      <View style={[styles.leftColumn, { marginLeft }]}>
-        {svg}
+      <View style={styles.leftColumn}>
+        <View style={styles.iconBox}>{svg}</View>
         <Text style={styles.name}>{name}</Text>
       </View>
       {switchProp ? (
@@ -49,6 +47,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 15,
     alignItems: "flex-start",
+    marginLeft: 10,
+  },
+  iconBox: {
+    width: 36,
+    height: 36,
+    alignItems: "center",
+    justifyContent: "center",
   },
   name: {
     textAlign: "center",
