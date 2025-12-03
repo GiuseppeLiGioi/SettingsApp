@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     marginRight: 12,
   },
+
   textBottom: {
     color: "#1E1F20",
     fontSize: 13,
