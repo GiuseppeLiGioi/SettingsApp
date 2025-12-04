@@ -1,5 +1,5 @@
-import ProfileIcon from "@/assets/icons/settingsTsx/ProfileIcon";
-import editProfile from "@/assets/icons/settingsTsx/editProfile";
+import SvgProfileIcon from "@/assets/icons/settingsTsx/ProfileIcon";
+import SvgEditPorfile from "@/assets/icons/settingsTsx/editProfile";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useLoadFonts } from "../../hooks/settingsHooks/useLoadFonts";
 
@@ -19,7 +19,7 @@ export default function StickyHeader({
   return (
     <View style={styles.containerHeader}>
       <View style={styles.leftColumn}>
-        {ProfileIcon({})}
+        <SvgProfileIcon />
 
         <View style={styles.texts}>
           <Text style={styles.textName}>{name}</Text>
@@ -29,7 +29,7 @@ export default function StickyHeader({
       </View>
 
       <Pressable onPress={() => console.log("ciao")}>
-        <Text>{editProfile({})}</Text>
+        <SvgEditPorfile />
       </Pressable>
     </View>
   );

@@ -1,12 +1,12 @@
-import Files from "@/assets/icons/settingsTsx/Files";
-import Mode from "@/assets/icons/settingsTsx/Mode";
-import Payment from "@/assets/icons/settingsTsx/Payment";
-import Settings from "@/assets/icons/settingsTsx/Settings";
+import SvgFiles from "@/assets/icons/settingsTsx/Files";
+import SvgMode from "@/assets/icons/settingsTsx/Mode";
+import SvgPayment from "@/assets/icons/settingsTsx/Payment";
+import SvgSettings from "@/assets/icons/settingsTsx/Settings";
 
-import Document from "@/assets/icons/settingsTsx/Document";
-import HelpIcon from "@/assets/icons/settingsTsx/HelpIcon";
-import InviteFriend from "@/assets/icons/settingsTsx/InviteFriend";
-import VitaiLogo from "@/assets/icons/settingsTsx/VitaiLogo";
+import SvgDocument from "@/assets/icons/settingsTsx/Document";
+import SvgHelpIcon from "@/assets/icons/settingsTsx/HelpIcon";
+import SvgInviteFriend from "@/assets/icons/settingsTsx/InviteFriend";
+import SvgVitaiLogo from "@/assets/icons/settingsTsx/VitaiLogo";
 import {
   Platform,
   Pressable,
@@ -20,22 +20,22 @@ import { useLoadFonts } from "../../hooks/settingsHooks/useLoadFonts";
 import SingleRowCard from "./SingleRowCard";
 export default function CardSetting() {
   const rows = [
-    { svg: Files, name: "Files", switchProp: false },
-    { svg: Payment, name: "Payment method", switchProp: false },
-    { svg: Settings, name: "Settings", switchProp: false },
-    { svg: Mode, name: "Dark Mode", switchProp: true },
+    { svg: SvgFiles, name: "Files", switchProp: false },
+    { svg: SvgPayment, name: "Payment method", switchProp: false },
+    { svg: SvgSettings, name: "Settings", switchProp: false },
+    { svg: SvgMode, name: "Dark Mode", switchProp: true },
   ];
 
   const rows2 = [
-    { svg: VitaiLogo, name: "About Aivi", switchProp: false },
+    { svg: SvgVitaiLogo, name: "About Aivi", switchProp: false },
     {
-      svg: HelpIcon,
+      svg: SvgHelpIcon,
       name: "Help & Support",
 
       switchProp: false,
     },
     {
-      svg: Document,
+      svg: SvgDocument,
       name: "Privacy and Policy",
 
       switchProp: false,
@@ -49,27 +49,35 @@ export default function CardSetting() {
   return (
     <ScrollView>
       <View style={styles.containerCard}>
-        {rows.map((r, index) => (
-          <SingleRowCard
-            key={index}
-            svg={r.svg({})}
-            name={r.name}
-            switchProp={r.switchProp}
-          />
-        ))}
+        {rows.map((r, index) => {
+          const Icon = r.svg;
+          return (
+            <SingleRowCard
+              key={index}
+              svg={<Icon />}
+              name={r.name}
+              switchProp={r.switchProp}
+            />
+          );
+        })}
       </View>
 
       <View style={styles.containerCard}>
-        {rows2.map((r, index) => (
-          <SingleRowCard
-            key={index}
-            svg={r.svg({})}
-            name={r.name}
-            switchProp={r.switchProp}
-          />
-        ))}
+        {rows2.map((r, index) => {
+          const Icon = r.svg;
+          return (
+            <SingleRowCard
+              key={index}
+              svg={<Icon />}
+              name={r.name}
+              switchProp={r.switchProp}
+            />
+          );
+        })}
         <View style={styles.bottomContainer}>
-          <View style={styles.inviteIconBox}>{InviteFriend({})}</View>
+          <View style={styles.inviteIconBox}>
+            <SvgInviteFriend />
+          </View>
 
           <View
             style={[

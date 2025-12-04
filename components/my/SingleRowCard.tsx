@@ -1,4 +1,4 @@
-import Row from "@/assets/icons/settingsTsx/Row";
+import SvgRow from "@/assets/icons/settingsTsx/Row";
 import { ReactNode, useState } from "react";
 import { Pressable, StyleSheet, Switch, Text, View } from "react-native";
 import { useLoadFonts } from "../../hooks/settingsHooks/useLoadFonts";
@@ -30,7 +30,7 @@ export default function SingleRowCard({
         </View>
       ) : (
         <Pressable onPress={() => console.log("ciao")}>
-          <Row />
+          <SvgRow />
         </Pressable>
       )}
     </View>
